@@ -14,11 +14,21 @@ const images = [
 ];
 const galleryContainerEl = document.querySelector(`ul`);
 
-const galleryItemEl = document.createElement(`li`);
+const galleryList = images.map((image) => {
+  const galleryItemEl = document.createElement(`li`);
 
 const imageEl = document.createElement(`img`);
 imageEl.src = image.url;
-imageEl.alt = image.alt;
+  imageEl.alt = image.alt;
+  imageEl.width = 450
 imageEl.classList = `img`;
 
+  galleryItemEl.append(imageEl)
+  return galleryItemEl
+
+})
+
+galleryContainerEl.append(...galleryList);
+
+console.log(galleryContainerEl)
 
